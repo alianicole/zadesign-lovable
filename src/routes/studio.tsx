@@ -24,27 +24,30 @@ const steps = [
 function StudioPage() {
   return (
     <main className="min-h-screen pt-32 md:pt-40">
-      <section className="px-8 md:px-12 max-w-5xl">
-        <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">About</span>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+      <section className="px-8 md:px-12 max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-5xl md:text-7xl mt-6 leading-[1.05]"
+          className="w-full max-w-md mx-auto aspect-square overflow-hidden"
+        >
+          <img
+            src="https://alianicole.github.io/Studio.ZA-Website/images/kensington/handles-detail.jpg"
+            alt="Zoe Adden, founder of Studio.ZA"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="font-serif text-4xl md:text-6xl mt-16 leading-[1.05]"
         >
           Every home is <span className="italic">personal</span>.
         </motion.h1>
-      </section>
 
-      <section className="grid md:grid-cols-12 gap-12 px-8 md:px-12 mt-24 max-w-7xl">
-        <div className="md:col-span-7 md:col-start-2">
-          <img
-            src="https://alianicole.github.io/Studio.ZA-Website/images/kensington/handles-detail.jpg"
-            alt="Faceted brass handles on fluted oak joinery"
-            className="w-full h-[60vh] md:h-[80vh] object-cover"
-          />
-        </div>
-        <div className="md:col-span-4 space-y-6 font-serif text-lg md:text-xl text-muted-foreground leading-relaxed md:pt-12">
+        <div className="mt-10 space-y-6 font-serif text-lg md:text-xl text-muted-foreground leading-relaxed">
           <p>
             Studio.ZA was founded by Zoe Adden in 2015 with a simple conviction: that the best interior design is about the people who live inside it. The way they move, gather, rest, cook, and celebrate.
           </p>
