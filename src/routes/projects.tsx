@@ -57,11 +57,8 @@ function ProjectsPage() {
                     transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
                   />
                 </div>
-                <div className="mt-4 flex justify-between items-baseline">
-                  <span className="font-serif italic text-2xl">{p.name}</span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    {p.location} — {p.year}
-                  </span>
+                <div className="mt-4">
+                  <span className="text-xs uppercase tracking-[0.18em]">{p.name}</span>
                 </div>
               </Link>
             </motion.div>
