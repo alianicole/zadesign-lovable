@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
+import { ChevronDown } from "lucide-react";
 import { projects } from "@/data/projects";
 
 export const Route = createFileRoute("/")({
@@ -12,16 +13,19 @@ function Index() {
       {/* Hero – the giant ZA logo is rendered by MovingLogo and dominates this view */}
       <section className="h-screen relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-10 left-0 right-0 flex justify-between px-8 md:px-12 text-xs uppercase tracking-[0.22em] text-muted-foreground"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: [10, 0, 6, 0] }}
+          transition={{
+            delay: 1.4,
+            duration: 2.4,
+            times: [0, 0.3, 0.65, 1],
+            repeat: Infinity,
+            repeatDelay: 0.4,
+          }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground"
+          aria-hidden="true"
         >
-          <span>Zoe Adden Design</span>
-          <span className="hidden md:inline">Residential Interiors — London and New York</span>
-          <Link to="/projects" className="hover:text-foreground transition-colors">
-            Enter ↓
-          </Link>
+          <ChevronDown strokeWidth={1} className="w-6 h-6" />
         </motion.div>
       </section>
 
