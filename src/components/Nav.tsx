@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 
 const links = [
-  { to: "/studio", label: "Studio" },
   { to: "/projects", label: "Projects" },
+  { to: "/studio", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
