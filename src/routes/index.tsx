@@ -18,7 +18,7 @@ function Index() {
           className="absolute bottom-10 left-0 right-0 flex justify-between px-8 md:px-12 text-xs uppercase tracking-[0.22em] text-muted-foreground"
         >
           <span>Zoe Adden Design</span>
-          <span className="hidden md:inline">Residential interiors — London & the English countryside</span>
+          <span className="hidden md:inline">Residential Interiors — London and New York</span>
           <Link to="/projects" className="hover:text-foreground transition-colors">
             Enter ↓
           </Link>
