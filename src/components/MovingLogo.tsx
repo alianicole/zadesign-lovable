@@ -129,7 +129,7 @@ export function MovingLogo() {
           layout
           initial={false}
           animate={{
-            height: minimized ? "2rem" : "min(50vh, 26rem)",
+            height: minimized ? "3rem" : "min(50vh, 26rem)",
             opacity: loaded ? 1 : 0,
           }}
           transition={{ type: "spring", stiffness: 70, damping: 20 }}
