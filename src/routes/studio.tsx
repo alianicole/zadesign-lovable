@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Footer } from "@/components/Nav";
+import zoePortrait from "@/assets/zoe-portrait.jpeg";
 
 export const Route = createFileRoute("/studio")({
   head: () => ({
@@ -32,7 +33,7 @@ function StudioPage() {
           className="w-full max-w-md mx-auto aspect-square overflow-hidden"
         >
           <img
-            src="https://alianicole.github.io/Studio.ZA-Website/images/kensington/handles-detail.jpg"
+            src={zoePortrait}
             alt="Zoe Adden, founder of Studio.ZA"
             className="w-full h-full object-cover"
           />
