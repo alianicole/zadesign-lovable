@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { MovingLogo, PageFade } from "@/components/MovingLogo";
+import { Nav } from "@/components/Nav";
 
 function NotFoundComponent() {
   return (
@@ -72,14 +74,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Studio.ZA — Zoe Adden Design" },
+      { name: "description", content: "Residential interior design across London and the English countryside. Classic in bones, joyful in detail." },
+      { name: "author", content: "Zoe Adden" },
+      { property: "og:title", content: "Studio.ZA — Zoe Adden Design" },
+      { property: "og:description", content: "Residential interior design across London and the English countryside." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -113,7 +114,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <MovingLogo />
+      <Nav />
+      <PageFade>
+        <Outlet />
+      </PageFade>
     </QueryClientProvider>
   );
 }
