@@ -32,7 +32,7 @@ function ContactPage() {
       <section className="grid md:grid-cols-12 gap-12 px-8 md:px-12 mt-24 max-w-7xl">
         <div className="md:col-span-6">
           <img
-            src="https://alianicole.github.io/Studio.ZA-Website/images/zoe.jpg"
+            src="https://alianicole.github.io/zadesign-lovable/images/zoe.jpg"
             alt="Zoe Adden"
             className="w-full h-[70vh] object-cover"
             onError={(e) => {
