@@ -43,7 +43,7 @@ export function Nav() {
 
   if (isHome && !scrolled) return null;
   return (
-    <nav className="fixed top-14 left-1/2 -translate-x-1/2 z-50 md:top-16 flex gap-6 text-xs uppercase tracking-[0.18em]">
+    <nav className="fixed top-20 left-1/2 -translate-x-1/2 z-50 md:top-24 flex gap-6 text-xs uppercase tracking-[0.18em]">
       {links.map((l) => (
         <Link
           key={l.to}
