@@ -117,7 +117,7 @@ export function MovingLogo() {
       className={
         !minimized
           ? "fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
-          : "fixed top-6 left-8 z-50 md:top-8 md:left-12"
+          : "fixed top-4 left-1/2 -translate-x-1/2 z-50 md:top-6"
       }
     >
       <Link

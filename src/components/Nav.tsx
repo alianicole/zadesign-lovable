@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 
 const links = [
@@ -8,9 +9,41 @@ const links = [
 
 export function Nav() {
   const { location } = useRouterState();
-  if (location.pathname === "/") return null;
+  const isHome = location.pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let raf = 0;
+    const check = () => {
+      const y =
+        window.scrollY ||
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+      setScrolled(y > 20);
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(check);
+    };
+    check();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("touchmove", onScroll, { passive: true });
+    window.addEventListener("touchend", onScroll, { passive: true });
+    window.addEventListener("wheel", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("touchmove", onScroll);
+      window.removeEventListener("touchend", onScroll);
+      window.removeEventListener("wheel", onScroll);
+    };
+  }, []);
+
+  if (isHome && !scrolled) return null;
   return (
-    <nav className="fixed top-6 right-8 z-50 md:top-9 md:right-12 flex gap-6 text-xs uppercase tracking-[0.18em]">
+    <nav className="fixed top-14 left-1/2 -translate-x-1/2 z-50 md:top-16 flex gap-6 text-xs uppercase tracking-[0.18em]">
       {links.map((l) => (
         <Link
           key={l.to}
