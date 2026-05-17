@@ -78,9 +78,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Residential interior design across London and the English countryside. Classic in bones, joyful in detail." },
       { name: "author", content: "Zoe Adden" },
       { property: "og:title", content: "Studio.ZA — Zoe Adden Design" },
-      { property: "og:description", content: "Residential interior design across London and the English countryside." },
+      { property: "og:description", content: "Residential interior design across London and the English countryside. Classic in bones, joyful in detail." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Studio.ZA — Zoe Adden Design" },
+      { name: "twitter:description", content: "Residential interior design across London and the English countryside. Classic in bones, joyful in detail." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d0288b-d60c-4e83-977f-3338105bff59/id-preview-c992dd96--7339812d-1425-4bf0-b06c-3af0389b20f0.lovable.app-1779038842759.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e4d0288b-d60c-4e83-977f-3338105bff59/id-preview-c992dd96--7339812d-1425-4bf0-b06c-3af0389b20f0.lovable.app-1779038842759.png" },
     ],
     links: [
       {
