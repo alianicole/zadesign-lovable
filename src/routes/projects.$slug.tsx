@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { getProject, projects } from "@/data/projects";
+import { getProject, projects, type Project } from "@/data/projects";
 import { Footer } from "@/components/Nav";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -24,7 +24,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectPage() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
   const next = projects.find((p) => p.slug === project.next) ?? projects[0];
 
   return (
