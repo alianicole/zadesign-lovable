@@ -39,7 +39,7 @@ function StudioPage() {
       <section className="grid md:grid-cols-12 gap-12 px-8 md:px-12 mt-24 max-w-7xl">
         <div className="md:col-span-7 md:col-start-2">
           <img
-            src="https://alianicole.github.io/zadesign-lovable/images/kensington/handles-detail.jpg"
+            src="https://alianicole.github.io/Studio.ZA-Website/images/kensington/handles-detail.jpg"
             alt="Faceted brass handles on fluted oak joinery"
             className="w-full h-[60vh] md:h-[80vh] object-cover"
           />
