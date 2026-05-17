@@ -80,10 +80,32 @@ export function MovingLogo() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
+    let raf = 0;
+    const check = () => {
+      const y =
+        window.scrollY ||
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
+      setScrolled(y > 20);
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(check);
+    };
+    check();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("touchmove", onScroll, { passive: true });
+    window.addEventListener("touchend", onScroll, { passive: true });
+    window.addEventListener("wheel", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("touchmove", onScroll);
+      window.removeEventListener("touchend", onScroll);
+      window.removeEventListener("wheel", onScroll);
+    };
   }, []);
 
   const minimized = !isHome || scrolled;
