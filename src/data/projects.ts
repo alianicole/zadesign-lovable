@@ -11,7 +11,7 @@ export interface Project {
   next: string;
 }
 
-const B = "https://alianicole.github.io/Studio.ZA-Website/images";
+const B = "https://alianicole.github.io/zadesign-lovable/images";
 
 export const projects: Project[] = [
   {
