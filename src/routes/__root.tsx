@@ -120,7 +120,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <div
         aria-hidden="true"
-        className="fixed top-0 left-0 right-0 z-40 pointer-events-none h-28 md:h-32 bg-gradient-to-b from-background via-background to-transparent"
+        className="fixed top-0 left-0 right-0 z-40 pointer-events-none h-40 md:h-48 bg-gradient-to-b from-background via-background via-65% to-transparent"
       />
       <MovingLogo />
       <Nav />
