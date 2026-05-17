@@ -72,11 +72,8 @@ function Index() {
                   transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
-              <div className="flex justify-between items-baseline mt-4 px-8 md:px-12">
-                <span className="font-serif italic text-xl md:text-2xl">{p.name}</span>
-                <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                  {p.location} — {p.year}
-                </span>
+              <div className="mt-4 px-8 md:px-12">
+                <span className="text-xs uppercase tracking-[0.18em]">{p.name}</span>
               </div>
             </Link>
           </motion.div>
