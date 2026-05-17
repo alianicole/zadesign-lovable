@@ -72,18 +72,28 @@ export function MovingLogo() {
   const { location } = useRouterState();
   const isHome = location.pathname === "/";
   const [loaded, setLoaded] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 50);
     return () => clearTimeout(t);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const minimized = !isHome || scrolled;
+
   return (
     <motion.div
       layout
       transition={{ type: "spring", stiffness: 60, damping: 18, mass: 1.2 }}
       className={
-        isHome
+        !minimized
           ? "fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
           : "fixed top-6 left-8 z-50 md:top-8 md:left-12"
       }
@@ -97,7 +107,7 @@ export function MovingLogo() {
           layout
           initial={false}
           animate={{
-            height: isHome ? "min(50vh, 26rem)" : "2rem",
+            height: minimized ? "2rem" : "min(50vh, 26rem)",
             opacity: loaded ? 1 : 0,
           }}
           transition={{ type: "spring", stiffness: 70, damping: 20 }}
