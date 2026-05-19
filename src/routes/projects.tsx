@@ -19,14 +19,13 @@ function ProjectsPage() {
   return (
     <main className="min-h-screen pt-32 md:pt-40">
       <section className="px-8 md:px-12 max-w-5xl">
-        <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Archive</span>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="font-serif text-5xl md:text-7xl mt-6 leading-[1.05]"
+          className="font-serif text-6xl md:text-8xl leading-[1.05]"
         >
-          Every room has a <span className="italic">story</span>.
+          Projects
         </motion.h1>
       </section>
 
