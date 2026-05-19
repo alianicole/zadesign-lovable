@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 import { Footer } from "@/components/Nav";
@@ -30,40 +30,36 @@ function ProjectsPage() {
         </motion.h1>
       </section>
 
-      <section className="mt-24 grid md:grid-cols-12 gap-x-8 gap-y-32 px-8 md:px-12 pb-32">
-        {projects.map((p, i) => {
-          const layouts = [
-            "md:col-span-7 md:col-start-1",
-            "md:col-span-5 md:col-start-8",
-            "md:col-span-6 md:col-start-3",
-            "md:col-span-5 md:col-start-8",
-          ];
-          return (
-            <motion.div
+      <section className="mt-24 pb-32">
+        <div className="flex gap-6 md:gap-10 overflow-x-auto snap-x snap-mandatory px-8 md:px-12 pb-6 [scrollbar-width:thin]">
+          {projects.map((p, i) => (
+            <motion.figure
               key={p.slug}
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className={layouts[i % layouts.length]}
+              className={`snap-start shrink-0 ${
+                i === 0
+                  ? "w-[78vw] md:w-[44vw]"
+                  : "w-[88vw] md:w-[54vw]"
+              }`}
             >
-              <Link to="/projects/$slug" params={{ slug: p.slug }} className="block group">
-                <div className="overflow-hidden">
-                  <motion.img
-                    src={p.thumb}
-                    alt={p.name}
-                    className="w-full h-[70vh] object-cover"
-                    whileHover={{ scale: 1.03 }}
-                    transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                </div>
-                <div className="mt-4">
-                  <span className="text-xs uppercase tracking-[0.18em]">{p.name}</span>
-                </div>
-              </Link>
-            </motion.div>
-          );
-        })}
+              <div className="overflow-hidden">
+                <img
+                  src={p.thumb}
+                  alt={p.name}
+                  className={`w-full object-cover ${
+                    i === 0 ? "h-[58vh]" : "h-[70vh]"
+                  }`}
+                />
+              </div>
+              <figcaption className="mt-4">
+                <span className="text-xs uppercase tracking-[0.18em]">{p.name}</span>
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
       </section>
       <Footer />
     </main>
