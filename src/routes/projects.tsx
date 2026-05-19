@@ -19,14 +19,14 @@ function ProjectsPage() {
   return (
     <main className="min-h-screen pt-32 md:pt-40">
       <section className="px-8 md:px-12 max-w-5xl">
-        <motion.h1
+        <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-xs uppercase tracking-[0.22em] text-muted-foreground"
         >
           Projects
-        </motion.h1>
+        </motion.span>
       </section>
 
       <section className="mt-24 grid md:grid-cols-12 gap-x-8 gap-y-32 px-8 md:px-12 pb-32">
