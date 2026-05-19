@@ -23,9 +23,9 @@ function ContactPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="font-serif text-5xl md:text-7xl mt-6 leading-[1.05] max-w-4xl"
+          className="font-serif text-4xl md:text-6xl mt-6 leading-[1.05] max-w-4xl"
         >
-          Let's talk about <span className="italic">your home.</span>
+          Let's <span className="italic">talk.</span>
         </motion.h1>
       </section>
 
