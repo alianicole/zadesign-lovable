@@ -30,36 +30,45 @@ function ProjectsPage() {
         </motion.h1>
       </section>
 
-      <section className="mt-24 pb-32">
-        <div className="flex gap-6 md:gap-10 overflow-x-auto snap-x snap-mandatory px-8 md:px-12 pb-6 [scrollbar-width:thin]">
-          {projects.map((p, i) => (
-            <motion.figure
+      <section className="mt-24 grid md:grid-cols-12 gap-x-8 gap-y-32 px-8 md:px-12 pb-32">
+        {projects.map((p, i) => {
+          const layouts = [
+            "md:col-span-7 md:col-start-1",
+            "md:col-span-5 md:col-start-8",
+            "md:col-span-6 md:col-start-3",
+            "md:col-span-5 md:col-start-8",
+          ];
+          const images = p.gallery.length > 0 ? p.gallery : [{ src: p.thumb, caption: p.name }];
+          const imgHeight = i === 0 ? "h-[58vh]" : "h-[70vh]";
+          return (
+            <motion.div
               key={p.slug}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className={`snap-start shrink-0 ${
-                i === 0
-                  ? "w-[78vw] md:w-[44vw]"
-                  : "w-[88vw] md:w-[54vw]"
-              }`}
+              className={layouts[i % layouts.length]}
             >
-              <div className="overflow-hidden">
-                <img
-                  src={p.thumb}
-                  alt={p.name}
-                  className={`w-full object-cover ${
-                    i === 0 ? "h-[58vh]" : "h-[70vh]"
-                  }`}
-                />
+              <div className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:thin]">
+                {images.map((img, idx) => (
+                  <div
+                    key={idx}
+                    className="snap-start shrink-0 w-full overflow-hidden"
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.caption || p.name}
+                      className={`w-full ${imgHeight} object-cover`}
+                    />
+                  </div>
+                ))}
               </div>
-              <figcaption className="mt-4">
+              <div className="mt-4">
                 <span className="text-xs uppercase tracking-[0.18em]">{p.name}</span>
-              </figcaption>
-            </motion.figure>
-          ))}
-        </div>
+              </div>
+            </motion.div>
+          );
+        })}
       </section>
       <Footer />
     </main>
