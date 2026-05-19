@@ -31,12 +31,8 @@ function ProjectsPage() {
 
       <section className="mt-16 md:mt-24 pb-32">
         {projects.map((p) => (
-          <motion.div
+          <div
             key={p.slug}
-            initial={{ opacity: 0, scale: 1.04, y: 40 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
             className="min-h-[85vh] flex items-center justify-center px-8 md:px-12 py-16 md:py-24"
           >
             <Link
@@ -44,21 +40,25 @@ function ProjectsPage() {
               params={{ slug: p.slug }}
               className="group block w-full max-w-5xl"
             >
-              <div className="overflow-hidden">
-                <img
-                  src={p.thumb}
-                  alt={p.name}
-                  className="w-full h-[70vh] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
-                />
-              </div>
-              <div className="mt-5 flex items-baseline justify-between gap-4">
-                <span className="font-serif text-2xl md:text-3xl leading-tight">{p.name}</span>
-                <span className="text-[0.65rem] md:text-xs uppercase tracking-[0.22em] text-muted-foreground whitespace-nowrap">
-                  {p.location} — {p.year}
-                </span>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={p.thumb}
+                    alt={p.name}
+                    className="w-full h-[70vh] object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="mt-5">
+                  <span className="font-serif text-2xl md:text-3xl leading-tight">{p.name}</span>
+                </div>
+              </motion.div>
             </Link>
-          </motion.div>
+          </div>
         ))}
       </section>
       <Footer />
