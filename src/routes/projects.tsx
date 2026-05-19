@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Outlet, createFileRoute, Link, useRouterState } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 import { Footer } from "@/components/Nav";
@@ -16,6 +16,12 @@ export const Route = createFileRoute("/projects")({
 });
 
 function ProjectsPage() {
+  const { location } = useRouterState();
+
+  if (location.pathname !== "/projects") {
+    return <Outlet />;
+  }
+
   return (
     <main className="min-h-screen pt-32 md:pt-40">
       <section className="px-8 md:px-12 max-w-5xl">
