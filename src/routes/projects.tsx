@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 import { Footer } from "@/components/Nav";
@@ -29,45 +29,36 @@ function ProjectsPage() {
         </motion.span>
       </section>
 
-      <section className="mt-24 grid md:grid-cols-12 gap-x-8 gap-y-32 px-8 md:px-12 pb-32">
-        {projects.map((p, i) => {
-          const layouts = [
-            "md:col-span-7 md:col-start-1",
-            "md:col-span-5 md:col-start-8",
-            "md:col-span-6 md:col-start-3",
-            "md:col-span-5 md:col-start-8",
-          ];
-          const images = p.gallery.length > 0 ? p.gallery : [{ src: p.thumb, caption: p.name }];
-          const imgHeight = i === 0 ? "h-[58vh]" : "h-[70vh]";
-          return (
-            <motion.div
-              key={p.slug}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className={layouts[i % layouts.length]}
+      <section className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-3 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24 px-8 md:px-12 pb-32">
+        {projects.map((p, i) => (
+          <motion.div
+            key={p.slug}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, delay: (i % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Link
+              to="/projects/$slug"
+              params={{ slug: p.slug }}
+              className="group block"
             >
-              <div className="flex gap-4 md:gap-6 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:thin]">
-                {images.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="snap-start shrink-0 w-full overflow-hidden"
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.caption || p.name}
-                      className={`w-full ${imgHeight} object-cover`}
-                    />
-                  </div>
-                ))}
+              <div className="overflow-hidden aspect-[4/5]">
+                <img
+                  src={p.thumb}
+                  alt={p.name}
+                  className="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                />
               </div>
-              <div className="mt-4">
-                <span className="text-xs uppercase tracking-[0.18em]">{p.name}</span>
+              <div className="mt-4 flex items-baseline justify-between gap-3">
+                <span className="font-serif text-lg md:text-xl leading-tight">{p.name}</span>
+                <span className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground whitespace-nowrap">
+                  {p.location} — {p.year}
+                </span>
               </div>
-            </motion.div>
-          );
-        })}
+            </Link>
+          </motion.div>
+        ))}
       </section>
       <Footer />
     </main>
