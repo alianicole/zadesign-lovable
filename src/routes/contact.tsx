@@ -18,7 +18,7 @@ function ContactPage() {
   return (
     <main className="min-h-screen pt-32 md:pt-40">
       <section className="px-8 md:px-12 max-w-6xl">
-        <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Get in touch</span>
+        <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Contact</span>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
