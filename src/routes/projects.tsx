@@ -54,7 +54,7 @@ function ProjectsPage() {
                   />
                 </div>
                 <div className="mt-5">
-                  <span className="font-serif text-2xl md:text-3xl leading-tight">{p.name}</span>
+                  <span className="text-xs uppercase tracking-[0.22em] text-muted-foreground">{p.name}</span>
                 </div>
               </motion.div>
             </Link>
