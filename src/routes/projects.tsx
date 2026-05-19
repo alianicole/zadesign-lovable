@@ -23,7 +23,7 @@ function ProjectsPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="font-serif text-6xl md:text-8xl leading-[1.05]"
+          className="font-serif text-6xl md:text-8xl leading-[1.05] uppercase"
         >
           Projects
         </motion.h1>
